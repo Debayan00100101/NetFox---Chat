@@ -3,7 +3,7 @@ from supabase import create_client
 import base64
 import time
 import json
-
+st.set_page_config("NetFox",avatar="🔥")
 SUPABASE_URL = "https://fsptnphfomjcdjmcvpxb.supabase.co"
 SUPABASE_KEY = "sb_publishable_wTFouimTBdHzMKwkxXf5LQ_REaR0AOO"
 db = create_client(SUPABASE_URL, SUPABASE_KEY)
@@ -210,3 +210,4 @@ else:
                 st.success("Updated")
                 time.sleep(0.6)
                 st.rerun()
+
