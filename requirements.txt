@@ -1,5 +1,4 @@
-supabase
 streamlit
-json
-base64
-time
+supabase
+python-dotenv
+requests
