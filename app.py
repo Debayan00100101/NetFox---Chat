@@ -237,6 +237,13 @@ else:
                 time.sleep(0.6)
         
                 st.rerun()
+    st.markdown("<br><br><br>", unsafe_allow_html=True)
+    
+
+    if st.button("Delete Account"):
+        st.session_state.confirm_delete = True
+
+
 
 
 
