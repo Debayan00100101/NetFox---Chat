@@ -85,6 +85,10 @@ else:
         if st.button("Logout"):
             st.session_state.user=None
             st.rerun()
+        st.markdown("<br><br><br>", unsafe_allow_html=True)
+        if st.button("Delete Account"):
+            st.session_state.confirm_delete = True
+
 
     # ---------------- HOME ----------------
     if st.session_state.page=="home":
@@ -237,11 +241,7 @@ else:
                 time.sleep(0.6)
         
                 st.rerun()
-    st.markdown("<br><br><br>", unsafe_allow_html=True)
     
-
-    if st.button("Delete Account"):
-        st.session_state.confirm_delete = True
 
 
 
