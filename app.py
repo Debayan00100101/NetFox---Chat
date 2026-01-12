@@ -197,7 +197,14 @@ else:
 
     # ---------------- PROFILE ----------------
     if st.session_state.page=="me":
-        st.image(base64.b64decode(u["avatar"]),width=100,use_column_width=False)
+        st.image(base64.b64decode(u["avatar"]),width=50,use_column_width=False)
+        st.html("""
+        <style>
+                .img-avatar {
+                    border-radius: 50%;
+                }
+            font-size:24px;
+            font-weight:bold;""")
         newbio=st.text_input("New bio")
         newav=st.file_uploader("New avatar")
 
@@ -210,6 +217,7 @@ else:
                 st.success("Updated")
                 time.sleep(0.6)
                 st.rerun()
+
 
 
 
