@@ -199,7 +199,7 @@ else:
     if st.session_state.page == "me":
 
     # --- CSS ---
-    st.markdown("""
+        st.markdown("""
     <style>
     .me-avatar {
         width: 120px;
@@ -210,33 +210,34 @@ else:
         margin-bottom: 10px;
     }
     </style>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
     # --- Avatar Display ---
-    st.markdown(f"""
+        st.markdown(f"""
     <div style="text-align:center;">
         <img src="data:image/png;base64,{u['avatar']}" class="me-avatar">
         <h2>{u['username']}</h2>
         <p>{u.get('bio','')}</p>
     </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
     # --- Edit Profile ---
-    newbio = st.text_input("New bio")
-    newav = st.file_uploader("New avatar", type=["png","jpg","jpeg"])
+        newbio = st.text_input("New bio")
+        newav = st.file_uploader("New avatar", type=["png","jpg","jpeg"])
 
-    if st.button("Save"):
-        data = {}
-        if newbio:
-            data["bio"] = newbio
-        if newav:
-            data["avatar"] = base64.b64encode(newav.read()).decode()
+        if st.button("Save"):
+            data = {}
+            if newbio:
+                data["bio"] = newbio
+            if newav:
+                data["avatar"] = base64.b64encode(newav.read()).decode()
 
-        if data:
-            db.table("users").update(data).eq("id", u["id"]).execute()
-            st.success("Updated")
-            time.sleep(0.6)
-            st.rerun()
+            if data:
+                db.table("users").update(data).eq("id", u["id"]).execute()
+                st.success("Updated")
+                time.sleep(0.6)
+                st.rerun()
+
 
 
 
