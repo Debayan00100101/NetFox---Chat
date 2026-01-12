@@ -88,6 +88,8 @@ else:
         st.markdown("<br><br><br>", unsafe_allow_html=True)
         if st.button("Delete Account"):
             st.session_state.confirm_delete = True
+            st.session_state.user=None
+            st.rerun()
 
 
     # ---------------- HOME ----------------
@@ -242,6 +244,7 @@ else:
         
                 st.rerun()
     
+
 
 
 
