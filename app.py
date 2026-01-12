@@ -22,7 +22,7 @@ html, body, [data-testid="stApp"] {{
     background:{bg};
     color:white;
 }}
-input, textarea {{ background:#2b0f47!important; color:white!important; border-radius:12px!important; }}
+input, textarea {{ important; color:white!important; border-radius:12px!important; }}
 button {{ background:#6b2fbf!important; color:white!important; border-radius:12px!important; }}
 .chatbox {{
     background:#1c0d2e;
@@ -210,5 +210,6 @@ else:
                 st.success("Updated")
                 time.sleep(0.6)
                 st.rerun()
+
 
 
