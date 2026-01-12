@@ -196,27 +196,49 @@ else:
             """,unsafe_allow_html=True)
 
     # ---------------- PROFILE ----------------
-    if st.session_state.page=="me":
-        st.image(base64.b64decode(u["avatar"]),width=50,use_column_width=False)
-        st.html("""
-        <style>
-                .img-avatar {
-                    border-radius: 50%;
-                }
-            font-size:24px;
-            font-weight:bold;""")
-        newbio=st.text_input("New bio")
-        newav=st.file_uploader("New avatar")
+    if st.session_state.page == "me":
 
-        if st.button("Save"):
-            data={}
-            if newbio: data["bio"]=newbio
-            if newav: data["avatar"]=base64.b64encode(newav.read()).decode()
-            if data:
-                db.table("users").update(data).eq("id",u["id"]).execute()
-                st.success("Updated")
-                time.sleep(0.6)
-                st.rerun()
+    # --- CSS ---
+    st.markdown("""
+    <style>
+    .me-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #00ffaa;
+        margin-bottom: 10px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # --- Avatar Display ---
+    st.markdown(f"""
+    <div style="text-align:center;">
+        <img src="data:image/png;base64,{u['avatar']}" class="me-avatar">
+        <h2>{u['username']}</h2>
+        <p>{u.get('bio','')}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # --- Edit Profile ---
+    newbio = st.text_input("New bio")
+    newav = st.file_uploader("New avatar", type=["png","jpg","jpeg"])
+
+    if st.button("Save"):
+        data = {}
+        if newbio:
+            data["bio"] = newbio
+        if newav:
+            data["avatar"] = base64.b64encode(newav.read()).decode()
+
+        if data:
+            db.table("users").update(data).eq("id", u["id"]).execute()
+            st.success("Updated")
+            time.sleep(0.6)
+            st.rerun()
+
+
 
 
 
