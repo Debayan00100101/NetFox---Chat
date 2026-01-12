@@ -229,17 +229,15 @@ else:
             data = {}
             if newbio:
                 data["bio"] = newbio
-                st.rerun()
             if newav:
                 data["avatar"] = base64.b64encode(newav.read()).decode()
-                st.rerun()
-
             if data:
                 db.table("users").update(data).eq("id", u["id"]).execute()
                 st.success("Updated")
                 time.sleep(0.6)
         
-        st.rerun()
+                st.rerun()
+
 
 
 
