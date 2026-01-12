@@ -202,8 +202,8 @@ else:
         st.markdown("""
     <style>
     .me-avatar {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         object-fit: cover;
         border: 3px solid #00ffaa;
@@ -237,6 +237,7 @@ else:
                 st.success("Updated")
                 time.sleep(0.6)
                 st.rerun()
+
 
 
 
