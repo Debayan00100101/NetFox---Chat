@@ -236,7 +236,9 @@ else:
                 db.table("users").update(data).eq("id", u["id"]).execute()
                 st.success("Updated")
                 time.sleep(0.6)
-            st.rerun()
+        
+        st.rerun()
+
 
 
 
