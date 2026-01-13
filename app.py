@@ -228,13 +228,10 @@ else:
         """, unsafe_allow_html=True)
 
     # --- Edit Profile ---
-        newbio = st.text_input("New bio")
+        
         newav = st.file_uploader("New avatar", type=["png","jpg","jpeg"])
-
         if st.button("Save"):
             data = {}
-            if newbio:
-                data["bio"] = newbio
             if newav:
                 data["avatar"] = base64.b64encode(newav.read()).decode()
             if data:
@@ -244,6 +241,7 @@ else:
         
                 st.rerun()
     
+
 
 
 
