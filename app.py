@@ -112,7 +112,7 @@ else:
             </div>
             """,unsafe_allow_html=True)
 
-            cols=st.columns(5)
+            cols=st.columns(6)
             for i,emo in enumerate(["❤️","😂","😎","👍","🔥","😭"]):
                 if cols[i].button(emo,key=f"r{emo}{m['id']}"):
                     reactions.setdefault(emo,[])
@@ -244,6 +244,7 @@ else:
         
                 st.rerun()
     
+
 
 
 
